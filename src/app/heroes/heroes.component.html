@@ -1,10 +1,8 @@
-<h2>나의 히어로들</h2>
+<h2>My Heroes</h2>
 <ul class="heroes">
-  <!--  반복문 -->
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
   </li>
 </ul>
-
-<!--프로퍼티 바인딩-->
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
