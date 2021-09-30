@@ -1,0 +1,20 @@
+<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name | uppercase}} 상세정보</h2>
+  <div><span>id: </span>{{selectedHero.id}}</div>
+  <!--<div><span>name: </span>{{hero.name}}</div>-->
+
+  <!--양방향 바인딩-->
+  <div>
+    <label for="name">Hero name: </label>
+    <input type="text" id="name" [(ngModel)]="selectedHero.name" placeholder="name">
+  </div>
+
+</div>
+
+<h2>나의 히어로들</h2>
+<ul class="heroes">
+  <!--  반복문 -->
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
