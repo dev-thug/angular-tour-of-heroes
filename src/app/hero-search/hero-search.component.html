@@ -1,0 +1,15 @@
+<div id="search-component">
+  <label for="search-box">Hero Search</label>
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+  <ul class="search-result">
+<!--    heroes$ 의 $sms Observable을 뜻하는 관용적 표현 -->
+<!--    *ngFor 자체로 Observable을 대상으로 아무작업도 수행하지않음-->
+<!--    문자 | 를 붙이고 async 파이프를 연결해주면 Observable을 자동으로 구독하는 역활을 함-->
+    <li *ngFor="let hero of heroes$ | async" >
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>
